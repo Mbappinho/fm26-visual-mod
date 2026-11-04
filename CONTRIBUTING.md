@@ -1,79 +1,119 @@
-# Contributing
+# Contributing to FM26 Visual Mod
 
-Thanks for your interest. This is a small fan project; contributions are welcome as long as they keep the
-repository **free of third-party game content** and keep the code **clean-room and MIT**.
+Thank you for your interest in contributing! This is an open-source fan project. Contributions are warmly welcomed as long as they maintain two non-negotiable principles:
+1. **The repository must remain 100% free of third-party copyrighted game assets.**
+2. **All code must be developed under clean-room conditions and licensed under MIT.**
 
-## Ground rules
+---
 
-1. **Never commit or attach EA / Sports Interactive assets or anything extracted from them**: models, meshes,
-   skeletons, animations, textures, audio, game archives (`.cas`, `.cat`, `.sb`, `.toc`, ...), decoded or converted
-   binaries, private packs (`%LOCALAPPDATA%\fm26-visual-mod\packs\`), interop assemblies generated from FM26, or
-   dumps of game memory. This applies to commits, pull requests, issues and comments alike.
-2. **Screenshots or short clips of your own game** are fine in a bug report (they are the best way to show a visual
-   problem). Do not attach extracted files instead, and do not post screenshots of other people's content.
-3. **Clean-room rule**: do not read, copy, translate or port code from GPL-licensed game-modding tools, editors or
-   plugins (FIFA/Frostbite editors, mesh/animation exporters and similar). Readers for donor formats in
-   `tools/fm26vm/` are written from observed data and our own tests only. If you have studied such code, say so in
-   your pull request and do not work on the same component.
-4. **License**: by contributing you agree that your contribution is licensed under the MIT license of this
-   repository ([LICENSE](LICENSE)). Only submit code you wrote yourself or that is MIT-compatible and attributed.
-5. **No secrets or personal data**: no tokens, no absolute paths with your user name, no Steam IDs, no save files.
+## Ground Rules
 
-## Development setup
+> [!CAUTION]
+> ### 1. Strict Asset Embargo
+> **Never commit or attach EA or Sports Interactive assets, or any data extracted from them.**
+> This includes:
+> - 3D models, meshes, skeletons, animations, textures, audio, or shaders.
+> - Game archives (`.cas`, `.cat`, `.sb`, `.toc`, etc.).
+> - Decoded or converted proprietary binaries.
+> - Private packs generated under `%LOCALAPPDATA%\fm26-visual-mod\packs\`.
+> - Interop assemblies generated from Football Manager 26.
+> - Dumps of game memory or process state.
+> 
+> *This embargo applies equally to commits, pull requests, issues, comments, and attachments.*
 
-- Windows 10/11 x64, Football Manager 26 (Steam) and EA SPORTS FIFA 17 PC for end-to-end testing.
-- **Python 3.11+** (tested with 3.14), standard library only.
-- **.NET 8 SDK** (the plugin targets net6.0, the policy tests net8.0).
-- **BepInEx 6.0.0-be.788 (Unity IL2CPP, win-x64)** staged locally, plus the interop assemblies BepInEx generates on
-  your machine after one FM26 launch; pass them with `-p:LoaderDir=...` and `-p:InteropDir=...`.
-- Full build and verification steps: [docs/BUILDING.md](docs/BUILDING.md).
+> [!NOTE]
+> ### 2. Visual Bug Reports
+> **Screenshots or short video clips of your own game** are welcome in bug reports — they are the best way to demonstrate a visual rendering issue. Do not attach extracted files, and do not post media containing other players' copyrighted modifications.
 
-## Test-first workflow
+> [!IMPORTANT]
+> ### 3. Clean-Room Engineering Rule
+> Do not read, copy, translate, or adapt code from GPL-licensed game-modding tools, editors, or plugins (such as Frostbite editors, proprietary mesh/animation exporters, etc.).
+> 
+> All file readers and parsers in `tools/fm26vm/` are written **solely from observed file structures and internal unit tests**. If you have studied GPL modding tool source code, state this transparently in your pull request and refrain from authoring code for that specific component.
 
-Every change of behaviour starts with a **failing test** that shows the problem or the new behaviour; then the
-smallest change that makes it pass. Refactorings keep the existing tests green without editing them.
+### 4. License & Origin
+By submitting a contribution, you agree that your work is licensed under the repository's [MIT License](LICENSE). Submit only code that you wrote yourself or that is fully MIT-compatible with explicit attribution.
 
-Before opening a pull request, run:
+### 5. Privacy & Secrets
+Do not commit sensitive or personal information: no API tokens, no absolute user paths with your username, no Steam IDs, and no raw save files.
+
+---
+
+## Development Environment Setup
+
+Ensure you have the following prerequisites installed:
+- **OS & Games:** Windows 10/11 x64, Football Manager 26 (Steam), and EA SPORTS FIFA 17 PC (for end-to-end local testing).
+- **Python:** **Python 3.11+** (standard library only; tested with 3.14).
+- **.NET SDK:** **.NET 8 SDK** (builds both the `net6.0` plugin and the `net8.0` policy tests).
+- **Interop Assemblies:** BepInEx 6.0.0-be.788 (Unity IL2CPP, win-x64) and interop DLLs generated locally by BepInEx on your machine after launching FM26 once. Pass their paths using `-p:LoaderDir=...` and `-p:InteropDir=...`.
+
+> For complete compilation and environment instructions, refer to [docs/BUILDING.md](docs/BUILDING.md).
+
+---
+
+## Test-Driven Workflow
+
+Every functional change must begin with a **failing test** that isolates the defect or defines the new capability, followed by the minimal code change necessary to turn the test green. Refactoring must preserve existing test coverage without altering test assertions.
+
+Before opening a pull request, run the complete verification suite:
 
 ```bat
-:: Python suite (synthetic data only; real-data tests skip themselves)
+:: 1. Run Python test suite (synthetic fixtures only)
 python -B -m unittest discover -s tests
 
-:: C# policy tests (see docs/BUILDING.md for the -p: properties)
+:: 2. Run C# policy tests (see docs/BUILDING.md for MSBuild properties)
 dotnet run --project tests/PolicyTests/PolicyTests.csproj
 
-:: the published tree must stay free of game data, binaries, personal data and secrets
+:: 3. Run zero-leak security and privacy audit
 python -B tools/leak_scan.py . --tracked
 ```
 
-All three must pass. Do not commit build outputs (`bin/`, `obj/`, `*.dll`).
+> [!TIP]
+> All three checks must pass with zero errors and zero leak findings. Never commit build artifacts (`bin/`, `obj/`, `*.dll`).
 
-## Reporting a match bug
+---
 
-Please include:
+## Reporting a Match Bug
 
-- FM26 version, plugin version (`python -m tools.fm26vm status`), Windows version;
-- what happened and when (minute, substitution, half time, key-moments / fast-forward, red card, ...);
-- a screenshot or short clip of your own game if the problem is visual;
-- the diagnostics written by the plugin in your FM26 folder:
-  - `BepInEx/visual-diagnostics/fifa-overlay-auto-*.json` (the ones from the affected match)
-  - `BepInEx/LogOutput.log`
+When reporting an in-match glitch, please provide:
+1. **Environment:** FM26 version, plugin version and SHA-256 (`python -m tools.fm26vm status`), and Windows build.
+2. **Context:** Exact situation (match minute, kick-off, substitution, half time, key-moments highlight, fast-forward, red card).
+3. **Reproduction:** Does the issue occur in every match or intermittently?
+4. **Media:** A screenshot or short video clip showing the visual anomaly.
+5. **Diagnostics:** Attach the logs created by the plugin in your FM26 directory:
+   - `BepInEx/visual-diagnostics/fifa-overlay-auto-*.json` (from the affected match session)
+   - `BepInEx/LogOutput.log`
 
-These files contain **FM player names from your save** (and local paths). Check them before posting; if you prefer,
-say so in the issue and share them privately with the maintainer instead of attaching them publicly.
+> [!WARNING]
+> Diagnostic files contain **FM player names from your save game** and local system paths. Review them before posting; if you prefer, mention in the issue that you wish to share them privately with the maintainer.
 
-## Pull request checklist
+---
 
-- [ ] A failing test was added first (or the change is a pure refactor / documentation).
-- [ ] `python -B -m unittest discover -s tests` passes.
-- [ ] `tests/PolicyTests` passes (for C# changes).
-- [ ] `python -B tools/leak_scan.py . --tracked` reports 0 findings.
-- [ ] No EA / SI assets, extracted data, interop assemblies, binaries or personal data are included.
-- [ ] Clean-room rule respected; the contribution is MIT.
-- [ ] README / docs updated if user-visible behaviour changed.
+## Pull Request Checklist
 
-## Suggested issue labels
+When submitting a PR, verify each item:
 
-`bug`, `match-visual` (in-match rendering), `installer`, `animation`, `performance`, `docs`, `research`
-(e.g. FM action state, donor formats), `good first issue`, `needs-repro`, `wontfix-assets` (requests that would
-require redistributing game content).
+- [ ] A failing test was added first (or the PR is a pure refactoring / documentation update).
+- [ ] `python -B -m unittest discover -s tests` passes completely.
+- [ ] `dotnet run --project tests/PolicyTests/PolicyTests.csproj` passes (for C# changes).
+- [ ] `python -B tools/leak_scan.py . --tracked` reports **0 findings**.
+- [ ] No EA / Sports Interactive assets, extracted data, interop assemblies, binaries, or personal data are included.
+- [ ] Clean-room principles were respected; the code is original and MIT-licensed.
+- [ ] Documentation (`README.md`, `docs/`) is updated if any user-facing behavior changed.
+
+---
+
+## Issue Labels Reference
+
+| Label | Description |
+| :--- | :--- |
+| `bug` | General software or installer issues |
+| `match-visual` | In-match 3D rendering or overlay problems |
+| `installer` | Setup, detection, or uninstallation issues |
+| `animation` | Locomotion, retargeting, or animation clip blending |
+| `performance` | Frame time, memory footprint, or optimization |
+| `docs` | Documentation or guide improvements |
+| `research` | FM action states, donor file formats, or reverse-engineering |
+| `good first issue` | Accessible tasks for new contributors |
+| `needs-repro` | Awaiting reproducible steps or diagnostic files |
+| `wontfix-assets` | Requests requiring redistribution of proprietary game content |

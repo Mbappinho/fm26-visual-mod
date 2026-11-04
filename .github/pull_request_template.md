@@ -1,17 +1,25 @@
-## What and why
+### Summary of Changes
 
-<!-- What does this change, and which issue / roadmap item does it address? -->
+<!-- Describe what this pull request changes, why it is needed, and link any relevant issue or roadmap item. -->
 
-## Tests
+---
 
-<!-- Which test failed before this change and passes now? Paste the summary lines. -->
+### Test Coverage & Verification
 
-## Checklist
+<!-- Which test failed before this change and passes now? Paste the test runner summary lines below. -->
 
-- [ ] A failing test was added first (or this is a pure refactor / documentation change).
-- [ ] `python -B -m unittest discover -s tests` passes.
-- [ ] `tests/PolicyTests` passes (C# changes; see docs/BUILDING.md).
-- [ ] `python -B tools/leak_scan.py . --tracked` reports 0 findings.
-- [ ] No EA / SI assets, extracted data, interop assemblies, binaries or personal data are included.
-- [ ] Clean-room: no code read, copied or ported from GPL-licensed modding tools; the contribution is MIT.
-- [ ] README / docs updated if user-visible behaviour changed.
+```bat
+# Paste test output here
+```
+
+---
+
+### Contribution Checklist
+
+- [ ] **Test-First:** A failing test was introduced first (or this is a pure refactor / documentation update).
+- [ ] **Python Suite:** `python -B -m unittest discover -s tests` passes with 0 errors.
+- [ ] **Policy Tests:** `dotnet run --project tests/PolicyTests/PolicyTests.csproj` passes (for C# changes).
+- [ ] **Zero Leaks:** `python -B tools/leak_scan.py . --tracked` reports **0 findings**.
+- [ ] **Asset Embargo:** No EA / SI assets, extracted packs, interop assemblies, binaries, or personal data are included.
+- [ ] **Clean-Room:** No code read, copied, or ported from GPL modding tools; code is original and MIT.
+- [ ] **Documentation:** `README.md` or `docs/` updated if user-visible behavior changed.

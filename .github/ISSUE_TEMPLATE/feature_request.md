@@ -1,20 +1,27 @@
 ---
 name: Feature request
-about: Suggest an improvement (see the roadmap in README.md first)
+about: Suggest an enhancement or new capability (check the roadmap in README.md first)
 title: "[feature] "
 labels: enhancement
 ---
 
-**Problem**
-What looks wrong or is missing in the match picture or the installer?
+### Problem Statement
+<!-- What looks incorrect or is missing in the match visuals, locomotion, or installer? -->
 
-**Proposal**
-What would you like to happen? If it relates to a roadmap item in README.md, name it.
 
-**Constraints**
-- [ ] Does not change FM26's simulation, tactics, ball or UI (visuals only).
-- [ ] Does not require redistributing any EA / Sports Interactive content (everything built locally from the
-      user's own copy).
+---
 
-**Research / references**
-Observations, logs, or public documentation. Do not paste code from GPL-licensed modding tools.
+### Proposed Solution
+<!-- What behavior would you like to see? If this corresponds to an existing roadmap item in README.md, please mention it. -->
+
+
+---
+
+### Core Modding Constraints
+- [ ] **Visuals Only:** Does not modify FM26's simulation, match calculation, tactics, ball physics, or user interface.
+- [ ] **Zero Asset Redistribution:** Does not require distributing EA / Sports Interactive assets (everything is generated locally from the user's legally owned game installation).
+
+---
+
+### Research & Context
+<!-- Provide any relevant observations, log snippets, or public documentation. Note: Do not quote or reference code from GPL-licensed modding utilities. -->
