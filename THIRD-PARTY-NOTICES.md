@@ -1,6 +1,7 @@
 # Third-party notices
 
-This repository's own code is MIT-licensed (see `LICENSE` and the `SPDX-License-Identifier` headers).
+This repository's own code is MIT-licensed: the root `LICENSE` file covers every file in this repository,
+whether or not the file carries an `SPDX-License-Identifier` header.
 
 The third-party components below are **not redistributed** by this repository: they are not versioned here and are not
 bundled in its release archives. The installer (`tools/fm26vm` `fetch-tools`/`setup`, `tools/deploy.py`) downloads them
@@ -17,3 +18,20 @@ user's machine. Their licences apply to those copies.
 Football Manager 26 and EA SPORTS FIFA 17 game files and any data derived from them are the property of their owners.
 They are never redistributed: private packs stay in the user's `%LOCALAPPDATA%/fm26-visual-mod/packs/` folder and
 `tools/deploy.py` refuses to deploy them.
+
+
+## Build-time references (not redistributed)
+
+Building the plugin (`FM26.VisualDiagnostics.csproj`) compiles against the assemblies below. They are referenced from
+the user's own BepInEx install / unpacked BepInEx zip (`LoaderDir`) and from the interop assemblies that BepInEx
+generates from the user's own Football Manager 26 install (`InteropDir`). None of them is committed to this repository
+or bundled in its releases; the plugin links to them dynamically at run time.
+
+| Component | Version | Licence | How it is used |
+|---|---|---|---|
+| BepInEx 6 core (`BepInEx.Core`, `BepInEx.Unity.Common`, `BepInEx.Unity.IL2CPP`) | 6.0.0-be.788 | `LGPL-2.1` | Compile-time reference from `LoaderDir`; not redistributed. |
+| Il2CppInterop (`Il2CppInterop.Runtime`, BepInEx) | as shipped in BepInEx be.788 | `LGPL-3.0` | Compile-time reference from `LoaderDir`; not redistributed. |
+| AssetRipper.Primitives | as shipped in BepInEx be.788 | `MIT` | Compile-time reference from `LoaderDir`; not redistributed. |
+| Unity / Football Manager 26 interop assemblies (`UnityEngine.*`, `FM.*`, `SI.*`, `Unity.*`, `Il2Cppmscorlib`) | generated locally by BepInEx | proprietary (owners of Unity and Football Manager 26) | Compile-time reference from `InteropDir`, generated on the user's machine; never redistributed. |
+
+No NuGet package is referenced by `FM26.VisualDiagnostics.csproj` or `tests/PolicyTests/PolicyTests.csproj`.

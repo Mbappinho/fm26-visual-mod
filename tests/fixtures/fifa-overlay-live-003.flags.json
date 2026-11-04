@@ -1,0 +1,399 @@
+{
+ "Derived": "H162: OriginalRendererFlags + HiddenRenderers of the real live-003 final report (session 20261024-182324, 0.4.0, HideNativePlayer; FM-folder report copied read-only); booleans/IDs only, no EA data. AfterActive/AfterEnabled were read at publication (after restoration); forceRenderingOff was NOT observed during the cut (last observed value = AfterHideForceRenderingOff).",
+ "SourceSha256": "62699c8879f7b7d99566827dccc4532790ee4f7c8703bcab5436d87321ea7d26",
+ "StopReason": "fm-view-changed",
+ "Error": null,
+ "StoppedFrame": 13880,
+ "Flags": [
+  {
+   "RendererInstanceId": -169670,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": false,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -169676,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": false,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -169698,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -170076,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -170084,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -170092,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -170100,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -170462,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -170470,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -170478,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -170486,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -170848,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -170856,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -170864,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -170872,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -171236,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -171244,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -171252,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -171260,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -171624,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -171632,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -171640,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -171648,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -172014,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -172022,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -172030,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -172038,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -172446,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -172454,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -172462,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -172470,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -172834,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -172842,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -172850,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -172858,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -173222,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -173230,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -173238,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  },
+  {
+   "RendererInstanceId": -173246,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "BeforeForceRenderingOff": false,
+   "AfterHideForceRenderingOff": true,
+   "HiddenStatus": "restored"
+  }
+ ]
+}

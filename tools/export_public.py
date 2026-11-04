@@ -38,6 +38,8 @@ ALLOW = [
     "tests/__init__.py",
     "tests/multi_pass_legacy_projection.py",
     "tests/fixtures/fm26vm/*.py",
+    # numeric extracts of our own plugin reports (renderer flags/IDs, positions, QPC ticks); no game asset
+    "tests/fixtures/fifa-overlay-live-00[1-4].*.json",
     "tests/PolicyTests/*.cs",
     "tests/PolicyTests/PolicyTests.csproj",
     "tests/test_candidate_overlay_integration.py",
@@ -58,6 +60,10 @@ ALLOW = [
     "THIRD-PARTY-NOTICES.md",
     ".gitignore",
 ]
+
+# Files published under another path: {public path: source path}. Our own MIT code / data only.
+REMAP = {"tests/fixtures/baseline-0.2.12/SemanticEventObserver.cs":
+         "local/spike-014/pre-anticipatory-0.2.12/files/src/SemanticEventObserver.cs"}
 
 # Self-copies: the maintainer tools that produced the tree are published with it.
 SELF = {"tools/export_public.py": Path(__file__).resolve(),
@@ -126,10 +132,80 @@ def t_fake_profile(text):
     return new
 
 
+def _sub_once(text, old, new, what):
+    if text.count(old) != 1:
+        raise SystemExit(f"{what}: expected exactly one occurrence of {old!r}")
+    return text.replace(old, new)
+
+
+def t_baseline_path(text):
+    # PolicyTests: read the 0.2.12 observer baseline from the published fixture instead of the maintainer folder.
+    return _sub_once(text, '"local/spike-014/pre-anticipatory-0.2.12/files/src/SemanticEventObserver.cs"',
+                     '"tests/fixtures/baseline-0.2.12/SemanticEventObserver.cs"', "AnticipatoryPassPolicyTests.cs")
+
+
+NOTICES_INTRO = ("This repository's own code is MIT-licensed: the root `LICENSE` file covers every file in this repository,\n"
+                 "whether or not the file carries an `SPDX-License-Identifier` header.")
+NOTICES_BUILD = """
+
+## Build-time references (not redistributed)
+
+Building the plugin (`FM26.VisualDiagnostics.csproj`) compiles against the assemblies below. They are referenced from
+the user's own BepInEx install / unpacked BepInEx zip (`LoaderDir`) and from the interop assemblies that BepInEx
+generates from the user's own Football Manager 26 install (`InteropDir`). None of them is committed to this repository
+or bundled in its releases; the plugin links to them dynamically at run time.
+
+| Component | Version | Licence | How it is used |
+|---|---|---|---|
+| BepInEx 6 core (`BepInEx.Core`, `BepInEx.Unity.Common`, `BepInEx.Unity.IL2CPP`) | 6.0.0-be.788 | `LGPL-2.1` | Compile-time reference from `LoaderDir`; not redistributed. |
+| Il2CppInterop (`Il2CppInterop.Runtime`, BepInEx) | as shipped in BepInEx be.788 | `LGPL-3.0` | Compile-time reference from `LoaderDir`; not redistributed. |
+| AssetRipper.Primitives | as shipped in BepInEx be.788 | `MIT` | Compile-time reference from `LoaderDir`; not redistributed. |
+| Unity / Football Manager 26 interop assemblies (`UnityEngine.*`, `FM.*`, `SI.*`, `Unity.*`, `Il2Cppmscorlib`) | generated locally by BepInEx | proprietary (owners of Unity and Football Manager 26) | Compile-time reference from `InteropDir`, generated on the user's machine; never redistributed. |
+
+No NuGet package is referenced by `FM26.VisualDiagnostics.csproj` or `tests/PolicyTests/PolicyTests.csproj`.
+"""
+
+
+def t_notices(text):
+    text = _sub_once(text, "This repository's own code is MIT-licensed (see `LICENSE` and the `SPDX-License-Identifier` "
+                     "headers).", NOTICES_INTRO, "THIRD-PARTY-NOTICES.md")
+    return text.rstrip("\n") + "\n" + NOTICES_BUILD
+
+
+def t_fifa_pack(text):
+    # Public tree: the low-level pack CLI has no maintainer-only default inputs; `python -m tools.fm26vm build-pack`
+    # (which calls build_pack_v2/verify_pack directly, not this CLI) is the user path.
+    text = _sub_once(text, '# H222: render skeleton (438 joints: BoneNames + ModelPose rest), the H112 decode of the FIFA17 '
+                     'player skeleton EBX.\nDEFAULT_SKELETON = REPO_ROOT / "local/spike-112-experimental-body-skin/data.json"\n',
+                     "", "fifa_pack.py skeleton default")
+    text = _sub_once(text, "parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])",
+                     "parser = argparse.ArgumentParser(description=__doc__.splitlines()[0], epilog=(\n"
+                     "        \"Low-level maintainer CLI: every input path is required. Users build the pack with \"\n"
+                     "        \"'python -m tools.fm26vm build-pack' (or setup).\"))", "fifa_pack.py parser")
+    text, n = re.subn(r'default=str\((?:REPO_ROOT / "local/spike-[^"]+"|DEFAULT_SKELETON)\)', "required=True", text)
+    if n != 8:
+        raise SystemExit(f"fifa_pack.py: expected 8 maintainer defaults, found {n}")
+    if "local/spike-" in text or "DEFAULT_SKELETON" in text:
+        raise SystemExit("fifa_pack.py: maintainer path left")
+    return text
+
+
+def t_cli(text):
+    # Reserved subcommands stay parseable (exit 2, 'not implemented yet') but are hidden from --help.
+    text = _sub_once(text, '        sub.add_parser(name, help="not implemented yet")',
+                     '        sub.add_parser(name)  # reserved, not implemented yet: hidden from --help', "cli.py reserved")
+    return _sub_once(text, "    return parser\n\n\ndef main(",
+                     "    hidden = {\"verify\", \"rebuild-pack\"}\n"
+                     "    sub.metavar = \"{\" + \",\".join(n for n in sub.choices if n not in hidden) + \"}\"\n"
+                     "    return parser\n\n\ndef main(", "cli.py parser end")
+
+
 TRANSFORMS = {"LICENSE": t_license,
               "tests/PolicyTests/FifaLocomotionTests.cs": t_fake_profile,
               "tests/PolicyTests/FifaOverlayPolicyTests.cs": t_fake_profile, "tools/fm26vm/release.json": t_release,
-              "FM26.VisualDiagnostics.csproj": t_csproj, ".gitignore": t_gitignore}
+              "FM26.VisualDiagnostics.csproj": t_csproj, ".gitignore": t_gitignore,
+              "tests/PolicyTests/AnticipatoryPassPolicyTests.cs": t_baseline_path,
+              "THIRD-PARTY-NOTICES.md": t_notices, "tools/fifa_pack.py": t_fifa_pack, "tools/fm26vm/cli.py": t_cli}
 
 
 def select(source):
@@ -140,6 +216,10 @@ def select(source):
             raise SystemExit(f"allowlist entry matched nothing: {pattern}")
         for p in hits:
             picked[p.relative_to(source).as_posix()] = p
+    for rel, src in REMAP.items():
+        if not (source / src).is_file():
+            raise SystemExit(f"remapped file missing: {src}")
+        picked[rel] = source / src
     return picked
 
 

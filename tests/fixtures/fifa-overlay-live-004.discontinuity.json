@@ -1,0 +1,532 @@
+{
+ "Source": "fifa-overlay-live-004.json (0.5.0, live run 4, 24/10/2026) - numbers only, derived by local/spike-164-fifa-overlay-time-skips/make_fixture.py",
+ "SourceSha256": "eae0dfcf6d31c0dbf75f28b62fd6a9268038bec627bededf4335664667e237ff",
+ "StopReason": "owned-update-failure",
+ "Error": "Match clock stepped backwards, jumped or is nonfinite.",
+ "StartedFrame": 8397,
+ "StoppedFrame": 31514,
+ "StoppedQpcTicks": 35139875428,
+ "QpcFrequency": 10000000,
+ "ManagedPoseUpdates": 22925,
+ "TimelineEvery": 10,
+ "TimelineRowsTotal": 2293,
+ "RendererCount": 39,
+ "Suspensions": [
+  {
+   "Index": 1,
+   "StartFrame": 12756,
+   "StartQpcTicks": 32013221464,
+   "EndFrame": 12769,
+   "EndQpcTicks": 32015432122,
+   "RealSeconds": 0.2210658,
+   "MatchTimeBefore": 137.9838104248047,
+   "MatchTimeAfter": 153.27915954589844,
+   "End": "resumed"
+  },
+  {
+   "Index": 2,
+   "StartFrame": 13285,
+   "StartQpcTicks": 32101361689,
+   "EndFrame": 13298,
+   "EndQpcTicks": 32103595671,
+   "RealSeconds": 0.2233982,
+   "MatchTimeBefore": 168.237060546875,
+   "MatchTimeAfter": 192.2791748046875,
+   "End": "resumed"
+  },
+  {
+   "Index": 3,
+   "StartFrame": 15388,
+   "StartQpcTicks": 32451877298,
+   "EndFrame": 15400,
+   "EndQpcTicks": 32453964574,
+   "RealSeconds": 0.2087276,
+   "MatchTimeBefore": 252.9957733154297,
+   "MatchTimeAfter": 269.5291748046875,
+   "End": "resumed"
+  },
+  {
+   "Index": 4,
+   "StartFrame": 16130,
+   "StartQpcTicks": 32575571026,
+   "EndFrame": 16143,
+   "EndQpcTicks": 32577789897,
+   "RealSeconds": 0.2218871,
+   "MatchTimeBefore": 290.7276916503906,
+   "MatchTimeAfter": 308.5291748046875,
+   "End": "resumed"
+  },
+  {
+   "Index": 5,
+   "StartFrame": 16993,
+   "StartQpcTicks": 32719437672,
+   "EndFrame": 17006,
+   "EndQpcTicks": 32721674068,
+   "RealSeconds": 0.2236396,
+   "MatchTimeBefore": 333.2333984375,
+   "MatchTimeAfter": 347.5291748046875,
+   "End": "resumed"
+  },
+  {
+   "Index": 6,
+   "StartFrame": 18116,
+   "StartQpcTicks": 32906621843,
+   "EndFrame": 18129,
+   "EndQpcTicks": 32908848914,
+   "RealSeconds": 0.2227071,
+   "MatchTimeBefore": 379.7339172363281,
+   "MatchTimeAfter": 396.0291748046875,
+   "End": "resumed"
+  },
+  {
+   "Index": 7,
+   "StartFrame": 20441,
+   "StartQpcTicks": 33294157903,
+   "EndFrame": 20454,
+   "EndQpcTicks": 33296407108,
+   "RealSeconds": 0.2249205,
+   "MatchTimeBefore": 463.22344970703125,
+   "MatchTimeAfter": 483.2791748046875,
+   "End": "resumed"
+  },
+  {
+   "Index": 8,
+   "StartFrame": 20962,
+   "StartQpcTicks": 33380999413,
+   "EndFrame": 20974,
+   "EndQpcTicks": 33383066696,
+   "RealSeconds": 0.2067283,
+   "MatchTimeBefore": 497.9931335449219,
+   "MatchTimeAfter": 515.0291748046875,
+   "End": "resumed"
+  },
+  {
+   "Index": 9,
+   "StartFrame": 22461,
+   "StartQpcTicks": 33630853985,
+   "EndFrame": 22474,
+   "EndQpcTicks": 33633095425,
+   "RealSeconds": 0.224144,
+   "MatchTimeBefore": 558.2349243164062,
+   "MatchTimeAfter": 573.7791748046875,
+   "End": "resumed"
+  },
+  {
+   "Index": 10,
+   "StartFrame": 23781,
+   "StartQpcTicks": 33850948638,
+   "EndFrame": 23794,
+   "EndQpcTicks": 33853087212,
+   "RealSeconds": 0.2138574,
+   "MatchTimeBefore": 611.7312622070312,
+   "MatchTimeAfter": 635.0291748046875,
+   "End": "resumed"
+  },
+  {
+   "Index": 11,
+   "StartFrame": 24921,
+   "StartQpcTicks": 34040868946,
+   "EndFrame": 24934,
+   "EndQpcTicks": 34043095113,
+   "RealSeconds": 0.2226167,
+   "MatchTimeBefore": 667.7298583984375,
+   "MatchTimeAfter": 684.0291748046875,
+   "End": "resumed"
+  },
+  {
+   "Index": 12,
+   "StartFrame": 25896,
+   "StartQpcTicks": 34203380353,
+   "EndFrame": 25908,
+   "EndQpcTicks": 34205441198,
+   "RealSeconds": 0.2060845,
+   "MatchTimeBefore": 711.9974975585938,
+   "MatchTimeAfter": 727.5291748046875,
+   "End": "resumed"
+  },
+  {
+   "Index": 13,
+   "StartFrame": 26475,
+   "StartQpcTicks": 34299894776,
+   "EndFrame": 26488,
+   "EndQpcTicks": 34302115592,
+   "RealSeconds": 0.2220816,
+   "MatchTimeBefore": 743.9728393554688,
+   "MatchTimeAfter": 760.2791748046875,
+   "End": "resumed"
+  },
+  {
+   "Index": 14,
+   "StartFrame": 30777,
+   "StartQpcTicks": 35016976121,
+   "EndFrame": 30789,
+   "EndQpcTicks": 35019050619,
+   "RealSeconds": 0.2074498,
+   "MatchTimeBefore": 884.9989624023438,
+   "MatchTimeAfter": 902.2791748046875,
+   "End": "resumed"
+  }
+ ],
+ "LastRows": [
+  {
+   "FrameCount": 31119,
+   "QpcTicks": 35073971627,
+   "MatchTimeSeconds": 911.8359375,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.01923032309329198,
+   "X": -3.345697,
+   "Z": -34.462967
+  },
+  {
+   "FrameCount": 31129,
+   "QpcTicks": 35075637134,
+   "MatchTimeSeconds": 912.127685546875,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.015948148020916583,
+   "X": -3.2041864,
+   "Z": -34.55401
+  },
+  {
+   "FrameCount": 31139,
+   "QpcTicks": 35077300219,
+   "MatchTimeSeconds": 912.41943359375,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.003787802728174732,
+   "X": -3.1336331,
+   "Z": -34.632404
+  },
+  {
+   "FrameCount": 31149,
+   "QpcTicks": 35078970416,
+   "MatchTimeSeconds": 912.711181640625,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.007217671410179403,
+   "X": -3.1551306,
+   "Z": -34.60649
+  },
+  {
+   "FrameCount": 31159,
+   "QpcTicks": 35080637220,
+   "MatchTimeSeconds": 913.0029296875,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.005870825719372625,
+   "X": -3.202793,
+   "Z": -34.55121
+  },
+  {
+   "FrameCount": 31169,
+   "QpcTicks": 35082301819,
+   "MatchTimeSeconds": 913.294677734375,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.004119199266129419,
+   "X": -3.2346976,
+   "Z": -34.512226
+  },
+  {
+   "FrameCount": 31179,
+   "QpcTicks": 35083969587,
+   "MatchTimeSeconds": 913.58642578125,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.003956233073457674,
+   "X": -3.2421036,
+   "Z": -34.502193
+  },
+  {
+   "FrameCount": 31189,
+   "QpcTicks": 35085636347,
+   "MatchTimeSeconds": 913.878173828125,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.00982811925396772,
+   "X": -3.1888018,
+   "Z": -34.57009
+  },
+  {
+   "FrameCount": 31199,
+   "QpcTicks": 35087306006,
+   "MatchTimeSeconds": 914.169921875,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.007594723375985549,
+   "X": -3.1270747,
+   "Z": -34.612896
+  },
+  {
+   "FrameCount": 31209,
+   "QpcTicks": 35088967639,
+   "MatchTimeSeconds": 914.461669921875,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.02026346830706003,
+   "X": -3.0374408,
+   "Z": -34.523796
+  },
+  {
+   "FrameCount": 31219,
+   "QpcTicks": 35090636025,
+   "MatchTimeSeconds": 914.75,
+   "MatchDt": 0.0257568359375,
+   "FrameDisplacementMeters": 0.0333979434858518,
+   "X": -2.9051032,
+   "Z": -34.261436
+  },
+  {
+   "FrameCount": 31229,
+   "QpcTicks": 35092301590,
+   "MatchTimeSeconds": 914.9833984375,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.05217019371914468,
+   "X": -2.7378144,
+   "Z": -33.929836
+  },
+  {
+   "FrameCount": 31239,
+   "QpcTicks": 35093970366,
+   "MatchTimeSeconds": 915.275146484375,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.05561093102404964,
+   "X": -2.4919086,
+   "Z": -33.44342
+  },
+  {
+   "FrameCount": 31249,
+   "QpcTicks": 35095635415,
+   "MatchTimeSeconds": 915.56689453125,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.05535452744046132,
+   "X": -2.242765,
+   "Z": -32.948208
+  },
+  {
+   "FrameCount": 31259,
+   "QpcTicks": 35097298693,
+   "MatchTimeSeconds": 915.858642578125,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.055246350310142155,
+   "X": -1.9939194,
+   "Z": -32.454918
+  },
+  {
+   "FrameCount": 31269,
+   "QpcTicks": 35098969213,
+   "MatchTimeSeconds": 916.150390625,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.05530545420318109,
+   "X": -1.7454067,
+   "Z": -31.962122
+  },
+  {
+   "FrameCount": 31279,
+   "QpcTicks": 35100641465,
+   "MatchTimeSeconds": 916.442138671875,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.05524666931459796,
+   "X": -1.4963151,
+   "Z": -31.468204
+  },
+  {
+   "FrameCount": 31289,
+   "QpcTicks": 35102302315,
+   "MatchTimeSeconds": 916.7344360351562,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.055243967402187635,
+   "X": -1.2469449,
+   "Z": -30.973845
+  },
+  {
+   "FrameCount": 31299,
+   "QpcTicks": 35103976112,
+   "MatchTimeSeconds": 917.0261840820312,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.055284600279914775,
+   "X": -0.99842095,
+   "Z": -30.481073
+  },
+  {
+   "FrameCount": 31309,
+   "QpcTicks": 35105636467,
+   "MatchTimeSeconds": 917.3179321289062,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.055234303977444846,
+   "X": -0.74933964,
+   "Z": -29.987158
+  },
+  {
+   "FrameCount": 31319,
+   "QpcTicks": 35107307120,
+   "MatchTimeSeconds": 917.6096801757812,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.05524734905480664,
+   "X": -0.5004656,
+   "Z": -29.493752
+  },
+  {
+   "FrameCount": 31329,
+   "QpcTicks": 35108970687,
+   "MatchTimeSeconds": 917.9014282226562,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.0552662698357833,
+   "X": -0.25192922,
+   "Z": -29.001009
+  },
+  {
+   "FrameCount": 31339,
+   "QpcTicks": 35110639152,
+   "MatchTimeSeconds": 918.1931762695312,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.05524826999810172,
+   "X": -0.0028372128,
+   "Z": -28.507048
+  },
+  {
+   "FrameCount": 31349,
+   "QpcTicks": 35112305243,
+   "MatchTimeSeconds": 918.4849243164062,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.05524476184914992,
+   "X": 0.24601275,
+   "Z": -28.01367
+  },
+  {
+   "FrameCount": 31359,
+   "QpcTicks": 35113974449,
+   "MatchTimeSeconds": 918.7766723632812,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.05524233301435584,
+   "X": 0.49461773,
+   "Z": -27.520838
+  },
+  {
+   "FrameCount": 31369,
+   "QpcTicks": 35115637008,
+   "MatchTimeSeconds": 919.0684204101562,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.05523781735091113,
+   "X": 0.74369645,
+   "Z": -27.02688
+  },
+  {
+   "FrameCount": 31379,
+   "QpcTicks": 35117305555,
+   "MatchTimeSeconds": 919.3601684570312,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.05524177510912927,
+   "X": 0.9924976,
+   "Z": -26.533587
+  },
+  {
+   "FrameCount": 31389,
+   "QpcTicks": 35118971298,
+   "MatchTimeSeconds": 919.6519165039062,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.05521951142227746,
+   "X": 1.2410617,
+   "Z": -26.040878
+  },
+  {
+   "FrameCount": 31399,
+   "QpcTicks": 35120635853,
+   "MatchTimeSeconds": 919.9436645507812,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.05524645458538102,
+   "X": 1.490196,
+   "Z": -25.54678
+  },
+  {
+   "FrameCount": 31409,
+   "QpcTicks": 35122305914,
+   "MatchTimeSeconds": 920.2354125976562,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.05524245806206685,
+   "X": 1.7390379,
+   "Z": -25.053392
+  },
+  {
+   "FrameCount": 31419,
+   "QpcTicks": 35123972952,
+   "MatchTimeSeconds": 920.5271606445312,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.0551963025393518,
+   "X": 1.9876175,
+   "Z": -24.560698
+  },
+  {
+   "FrameCount": 31429,
+   "QpcTicks": 35125645943,
+   "MatchTimeSeconds": 920.8189086914062,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.05523808576117974,
+   "X": 2.2366767,
+   "Z": -24.066715
+  },
+  {
+   "FrameCount": 31439,
+   "QpcTicks": 35127309634,
+   "MatchTimeSeconds": 921.1106567382812,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.055240110864185676,
+   "X": 2.485529,
+   "Z": -23.573307
+  },
+  {
+   "FrameCount": 31449,
+   "QpcTicks": 35128978844,
+   "MatchTimeSeconds": 921.4024047851562,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.055169311642424564,
+   "X": 2.7341247,
+   "Z": -23.080614
+  },
+  {
+   "FrameCount": 31459,
+   "QpcTicks": 35130645572,
+   "MatchTimeSeconds": 921.6941528320312,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.05524459052974035,
+   "X": 2.9831738,
+   "Z": -22.586617
+  },
+  {
+   "FrameCount": 31469,
+   "QpcTicks": 35132310633,
+   "MatchTimeSeconds": 921.9859008789062,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.055242565428373074,
+   "X": 3.2320163,
+   "Z": -22.093231
+  },
+  {
+   "FrameCount": 31479,
+   "QpcTicks": 35133983445,
+   "MatchTimeSeconds": 922.2776489257812,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.055141465332896565,
+   "X": 3.48069,
+   "Z": -21.600428
+  },
+  {
+   "FrameCount": 31489,
+   "QpcTicks": 35135644167,
+   "MatchTimeSeconds": 922.5693969726562,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.055247889206017524,
+   "X": 3.729716,
+   "Z": -21.106428
+  },
+  {
+   "FrameCount": 31499,
+   "QpcTicks": 35137311416,
+   "MatchTimeSeconds": 922.8611450195312,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.05524437579964601,
+   "X": 3.9785593,
+   "Z": -20.61304
+  },
+  {
+   "FrameCount": 31509,
+   "QpcTicks": 35138979004,
+   "MatchTimeSeconds": 923.1528930664062,
+   "MatchDt": 0.0291748046875,
+   "FrameDisplacementMeters": 0.0551086863861847,
+   "X": 4.2270274,
+   "Z": -20.120258
+  }
+ ]
+}

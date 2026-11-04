@@ -16,6 +16,9 @@ only reads the match state and draws on top of it, and hides the native player m
 > This project is a fan-made mod. It is **not affiliated with, endorsed by or sponsored by Electronic Arts,
 > EA SPORTS, Sports Interactive or SEGA**. "FIFA", "EA SPORTS" and "Football Manager" are trademarks of their
 > respective owners and are used here only to describe compatibility. No logos are used.
+>
+> **Use at your own risk.** You are responsible for respecting the end-user licence agreements (EULAs) and terms of
+> service of Football Manager 26, EA SPORTS FIFA 17, Steam and any other software you use with this mod.
 
 ## What it does / does not do
 
@@ -42,12 +45,14 @@ Does not:
 - **Football Manager 26** (Steam, Windows build).
 - **EA SPORTS FIFA 17 for PC**, installed locally (your own licensed copy). The recipe targets one specific
   FIFA 17 build; `verify-fifa17` tells you if yours differs.
-- Python **3.11+** (standard library only) to run the installer.
+- Python (standard library only) to run the installer: tested with **3.14**; 3.11+ expected to work.
 - **BepInEx 6.0.0-be.788, Unity IL2CPP, win-x64** — manual download (see below).
 - `zstd` 1.5.7 win64 — downloaded by the installer from the official GitHub release only if you pass
   `--download` (pinned SHA-256), or supplied as a local zip with `--zstd`.
-- The plugin `FM26.VisualDiagnostics.dll`: the release asset whose SHA-256 is pinned in
-  `tools/fm26vm/release.json`, or your own build (see [docs/BUILDING.md](docs/BUILDING.md)).
+- The plugin `FM26.VisualDiagnostics.dll` **0.10.7**: download the asset `FM26.VisualDiagnostics.dll` from the
+  [Releases page](https://github.com/Mbappinho/fm26-visual-mod/releases). Its SHA-256 must be
+  `26a8124073615518421a2a20a91bbeca094ff696bf2253e0c5094ca710998a1c` (pinned in `tools/fm26vm/release.json`; `setup --plugin` refuses any other file). A self-built DLL has a
+  different hash (see [docs/BUILDING.md](docs/BUILDING.md)).
 
 ### BepInEx: manual download
 
@@ -63,12 +68,14 @@ any other file. Pass it with `--bepinex <zip>`.
 
 ## Usage
 
-Close Football Manager 26 first, then, from the repository folder:
+Download `FM26.VisualDiagnostics.dll` (0.10.7) from the [Releases page](https://github.com/Mbappinho/fm26-visual-mod/releases) and check it with
+`certutil -hashfile <dll> SHA256` (expected `26a8124073615518421a2a20a91bbeca094ff696bf2253e0c5094ca710998a1c`).
+Close Football Manager 26 first, then, from the repository folder (replace the two paths with your downloaded files):
 
 ```bat
 :: 1. full install: detect -> verify FIFA 17 -> tools -> build the private pack -> deploy -> enable -> verify
 python -m tools.fm26vm setup --bepinex C:\path\to\BepInEx-Unity.IL2CPP-win-x64-6.0.0-be.788+5b766a3.zip ^
-    --plugin C:\path\to\FM26.VisualDiagnostics.dll --download
+    --plugin C:\path\to\downloaded\FM26.VisualDiagnostics.dll --download
 
 :: 2. read-only summary: detected paths, pack, plugin hash, BepInEx mode, overlay on/off
 python -m tools.fm26vm status
@@ -130,6 +137,8 @@ installation PC de FIFA 17**. Aucun fichier EA / Sports Interactive n'est distri
 votre machine (`%LOCALAPPDATA%\fm26-visual-mod\packs\`) et ne doit pas être partagé. Projet de fan, sans lien avec
 EA ni Sports Interactive.
 
-Commandes : `python -m tools.fm26vm setup --bepinex <zip> --plugin <dll> --download`, puis `status`, et
+Le plugin `FM26.VisualDiagnostics.dll` 0.10.7 se télécharge sur la page [Releases](https://github.com/Mbappinho/fm26-visual-mod/releases) (SHA-256 ci-dessus).
+Utilisation à vos risques ; respectez les CLUF/EULA des jeux.
+Commandes : `python -m tools.fm26vm setup --bepinex <zip> --plugin <dll téléchargé> --download`, puis `status`, et
 `uninstall` pour tout retirer. BepInEx be.788 se télécharge à la main (fichier et SHA-256 ci-dessus).
 Limites : glissement des pieds, pas de gestes, pas de visages/textures, cas à 10 joueurs non validé.

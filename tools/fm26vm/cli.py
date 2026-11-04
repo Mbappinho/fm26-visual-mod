@@ -26,7 +26,7 @@ def build_parser():
     d.add_argument("--fm")
     d.add_argument("--fifa17")
     for name in ("verify", "rebuild-pack"):
-        sub.add_parser(name, help="not implemented yet")
+        sub.add_parser(name)  # reserved, not implemented yet: hidden from --help
     n = sub.add_parser("uninstall", help="deploy uninstall (+ auto-off) with a final readback; the pack is kept")
     n.add_argument("--purge-pack", action="store_true", help="also delete the private pack")
     u = sub.add_parser("setup", help="detect -> verify-fifa17 -> tools -> build-pack -> deploy -> auto-on -> verify "
@@ -77,6 +77,8 @@ def build_parser():
     for a in ("--steam", "--fm", "--fifa17"):
         s.add_argument(a)
     s.add_argument("--recipe", default=str(recipe.DEFAULT_RECIPE))
+    hidden = {"verify", "rebuild-pack"}
+    sub.metavar = "{" + ",".join(n for n in sub.choices if n not in hidden) + "}"
     return parser
 
 

@@ -277,7 +277,7 @@ internal static class AnticipatoryPassPolicyTests
         Check(start>rootRead && start>demo.IndexOf("OriginalPassPolicy.OriginalFlagsUnchanged",tick,StringComparison.Ordinal),"actual start after guards/root checks");
         Check(demo.Contains("AnticipatoryPassPolicy.IsAbstention(_request.AnticipatoryPassDemo,reason)",StringComparison.Ordinal),"clean refusal isolated from actual failure");
         string observer=File.ReadAllText(Path.Combine(root,"src/SemanticEventObserver.cs"));
-        string baseline=File.ReadAllText(Path.Combine(root,"local/spike-014/pre-anticipatory-0.2.12/files/src/SemanticEventObserver.cs"));
+        string baseline=File.ReadAllText(Path.Combine(root,"tests/fixtures/baseline-0.2.12/SemanticEventObserver.cs"));
         var regex=new System.Text.RegularExpressions.Regex(@"ReadPublished\(\(\) => [^;\r\n]*?\)");
         var oldReads=regex.Matches(baseline).Select(x=>x.Value).ToArray();
         var newReads=regex.Matches(observer).Select(x=>x.Value).ToArray();

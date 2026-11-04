@@ -1,0 +1,93 @@
+{
+ "Source": "DERIVED read-only extract of BepInEx/visual-diagnostics/fifa-overlay-live-001.json (sha256 4ad5b4a1cb37a99bf7ba71a7974a70f4908e979d7639a0b848e309630acab6b3), session 20261023-211452, plugin 0.3.1; every 10th managed update; user-confirmed FM playback speed 1.75x (not recorded natively in this report)",
+ "QpcFrequency": 10000000,
+ "UserConfirmedPlaybackSpeed": 1.75,
+ "StopReason": "owned-update-failure",
+ "Error": "Implausible horizontal speed; overlay stops rather than guessing.",
+ "Rows": [
+  {
+   "FrameCount": 9415,
+   "QpcTicks": 1107317851874,
+   "X": 7.1568418,
+   "Z": -14.401403,
+   "WallSpeedMetersPerSecond": 0
+  },
+  {
+   "FrameCount": 9425,
+   "QpcTicks": 1107319407353,
+   "X": 6.7834263,
+   "Z": -16.317738,
+   "WallSpeedMetersPerSecond": 0
+  },
+  {
+   "FrameCount": 9435,
+   "QpcTicks": 1107321073977,
+   "X": 6.387966,
+   "Z": -17.834455,
+   "WallSpeedMetersPerSecond": 9.279152042964846
+  },
+  {
+   "FrameCount": 9445,
+   "QpcTicks": 1107322742381,
+   "X": 6.0727715,
+   "Z": -19.006329,
+   "WallSpeedMetersPerSecond": 7.916196762730868
+  },
+  {
+   "FrameCount": 9455,
+   "QpcTicks": 1107324406781,
+   "X": 5.899703,
+   "Z": -19.716047,
+   "WallSpeedMetersPerSecond": 5.2473606936948425
+  },
+  {
+   "FrameCount": 9465,
+   "QpcTicks": 1107326075407,
+   "X": 5.8822346,
+   "Z": -20.32221,
+   "WallSpeedMetersPerSecond": 3.695379721072065
+  },
+  {
+   "FrameCount": 9475,
+   "QpcTicks": 1107327742079,
+   "X": 5.9853992,
+   "Z": -21.227396,
+   "WallSpeedMetersPerSecond": 4.937095095421845
+  },
+  {
+   "FrameCount": 9485,
+   "QpcTicks": 1107329409129,
+   "X": 5.9473195,
+   "Z": -22.563139,
+   "WallSpeedMetersPerSecond": 7.2272793920728935
+  },
+  {
+   "FrameCount": 9495,
+   "QpcTicks": 1107331128408,
+   "X": 5.5705895,
+   "Z": -24.35024,
+   "WallSpeedMetersPerSecond": 9.96890080148883
+  },
+  {
+   "FrameCount": 9505,
+   "QpcTicks": 1107332794918,
+   "X": 5.022934,
+   "Z": -26.41158,
+   "WallSpeedMetersPerSecond": 12.179139458214705
+  },
+  {
+   "FrameCount": 9515,
+   "QpcTicks": 1107334460651,
+   "X": 4.522876,
+   "Z": -28.737436,
+   "WallSpeedMetersPerSecond": 13.871065513770764
+  },
+  {
+   "FrameCount": 9525,
+   "QpcTicks": 1107336130656,
+   "X": 4.2172565,
+   "Z": -31.258207,
+   "WallSpeedMetersPerSecond": 14.947215138176096
+  }
+ ]
+}

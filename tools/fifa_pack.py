@@ -27,8 +27,6 @@ TRIANGLES = "triangles.u16le.bin"
 ANCHOR_BONES = ("LeftFoot", "RightFoot", "LeftToeBase", "RightToeBase", "Head")
 DOMINANCE = 0.9  # a derived axis must be >=90% along one source axis, otherwise refuse (no guessing)
 REPO_ROOT = Path(__file__).resolve().parents[1]
-# H222: render skeleton (438 joints: BoneNames + ModelPose rest), the H112 decode of the FIFA17 player skeleton EBX.
-DEFAULT_SKELETON = REPO_ROOT / "local/spike-112-experimental-body-skin/data.json"
 # H156: plugin pack contract (src/FifaOverlayPolicy.cs), cross-checked by tests/test_fifa_cross_contract.py.
 PLUGIN_VERTEX_COUNT = 1868
 PLUGIN_TRIANGLE_COUNT = 2911
@@ -675,21 +673,23 @@ def verify_pack(folder):
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0], epilog=(
+        "Low-level maintainer CLI: every input path is required. Users build the pack with "
+        "'python -m tools.fm26vm build-pack' (or setup)."))
     sub = parser.add_subparsers(dest="action", required=True)
     build = sub.add_parser("build")
-    build.add_argument("--frames", default=str(REPO_ROOT / "local/spike-152-vbr-animated-player"))
-    build.add_argument("--meshes", default=str(REPO_ROOT / "local/spike-140-full-player-mesh-acquisition"))
-    build.add_argument("--skeleton", default=str(DEFAULT_SKELETON))
+    build.add_argument("--frames", required=True)
+    build.add_argument("--meshes", required=True)
+    build.add_argument("--skeleton", required=True)
     build.add_argument("--out")
     verify = sub.add_parser("verify")
     verify.add_argument("--pack")
     build2 = sub.add_parser("build-v2")  # H171: locomotion set from the H170 pipeline outputs
-    build2.add_argument("--frames", default=str(REPO_ROOT / "local/spike-171-pack-v2-locomotion-h170-regen"))
-    build2.add_argument("--meshes", default=str(REPO_ROOT / "local/spike-140-full-player-mesh-acquisition"))
-    build2.add_argument("--proposal", default=str(REPO_ROOT / "local/spike-170-locomotion-clip-set/pack-v2-proposal.json"))
-    build2.add_argument("--measurements", default=str(REPO_ROOT / "local/spike-170-locomotion-clip-set/measurements.jsonl"))
-    build2.add_argument("--skeleton", default=str(DEFAULT_SKELETON))
+    build2.add_argument("--frames", required=True)
+    build2.add_argument("--meshes", required=True)
+    build2.add_argument("--proposal", required=True)
+    build2.add_argument("--measurements", required=True)
+    build2.add_argument("--skeleton", required=True)
     build2.add_argument("--out")
     args = parser.parse_args(argv)
     if args.action in ("build", "build-v2"):

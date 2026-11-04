@@ -1,0 +1,321 @@
+{
+ "Derived": "H160: OriginalRendererFlags of the real live-002 final report (session 20261023-223136, FM-folder report copied read-only); booleans/IDs only, no EA data",
+ "SourceSha256": "5c9536d5df02ccff7e6d922531a86bdab0508dac04188ab3e9aa987b252bf964",
+ "StopReason": "owned-update-failure",
+ "Error": "FIFA overlay root/scene/actor context changed.",
+ "StoppedFrame": 10342,
+ "Flags": [
+  {
+   "RendererInstanceId": -162458,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": false,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "unchanged"
+  },
+  {
+   "RendererInstanceId": -162464,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": false,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "unchanged"
+  },
+  {
+   "RendererInstanceId": -162486,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -162860,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -162868,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -162876,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -162884,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -163246,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -163254,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -163262,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -163270,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -163632,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -163640,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -163648,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -163656,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -164020,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -164028,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -164036,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -164044,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -164408,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -164416,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -164424,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -164432,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -164798,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -164806,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -164814,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -164822,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -165230,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -165238,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -165246,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -165254,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -165618,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -165626,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -165634,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -165642,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -166006,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -166014,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -166022,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  },
+  {
+   "RendererInstanceId": -166030,
+   "BeforeEnabled": true,
+   "BeforeActiveInHierarchy": true,
+   "AfterEnabled": true,
+   "AfterActiveInHierarchy": false,
+   "Status": "changed"
+  }
+ ]
+}
