@@ -117,8 +117,7 @@ def main(argv=None, registry=None, fm_running=None, env=None, fifa_candidates=No
         return 0
     if args.command == "fetch-tools":
         if opener is None:
-            import urllib.request
-            opener = lambda url: urllib.request.urlopen(url, timeout=120)  # noqa: E731
+            opener = tools_acquire.open_url
         tools_dir = tools_acquire.default_tools_dir(env)
         try:
             results = [tools_acquire.acquire(kind, tools_dir, supplied=getattr(args, kind), opener=opener,
@@ -170,8 +169,7 @@ def main(argv=None, registry=None, fm_running=None, env=None, fifa_candidates=No
 
 def _ctx(env, registry, fm_running, fifa_candidates, opener, pins, launcher, hooks):
     if opener is None:
-        import urllib.request
-        opener = lambda url: urllib.request.urlopen(url, timeout=120)  # noqa: E731 - only used with setup --download
+        opener = tools_acquire.open_url  # only used with setup --download
     return orchestrate.Ctx(env=env, registry=registry, fm_running=fm_running, fifa_candidates=fifa_candidates,
                            opener=opener, pins=pins, launcher=launcher, **(hooks or {}))
 

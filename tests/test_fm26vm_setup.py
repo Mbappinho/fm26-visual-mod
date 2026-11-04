@@ -736,3 +736,33 @@ class H239UninstallPluginOnlyAutoFolder(Tmp):  # H239 13 M1
         code, out = self.run_cli(["uninstall"])
         self.assertEqual((code, (self.game / AUTO_REL).parent.exists(),
                           (self.game / "BepInEx" / "core" / "BepInEx.Core.dll").is_file()), (0, False, True), out)
+
+
+class SetupDownloadFailureHint(Tmp):
+    """H247: when the pinned BepInEx download fails, setup's error names the manual --bepinex path."""
+    def test_it(self):
+        self.pins["bepinex"]["url"] = "https://example.invalid/bepinex.zip"
+
+        def opener(url):
+            raise OSError("HTTP Error 403: Forbidden")
+        self.opener = opener
+        code, out = self.setup_cli("--download", bepinex=False)
+        self.assertEqual((code, out.startswith("error:"), "--bepinex" in out, (self.game / "BepInEx").exists()),
+                         (1, True, True, False), out)
+
+
+class SetupDownloadBepinex(Tmp):
+    """H247 U1 closed: setup --download without --bepinex fetches the pinned zip (sha256-checked) and installs it."""
+    def test_fake_download_installs(self):
+        self.pins["bepinex"]["url"] = "https://example.invalid/bepinex.zip"
+        self.opener = FakeOpener(self.bepinex.read_bytes())
+        code, out = self.setup_cli("--download", bepinex=False)
+        self.assertEqual((code, self.opener.calls, (self.game / "winhttp.dll").read_bytes()
+                          if (self.game / "winhttp.dll").is_file() else None),
+                         (0, ["https://example.invalid/bepinex.zip"], b"proxy"), out)
+
+    def test_real_pins_plan_downloads(self):
+        self.pins = None  # the shipped PINS: both tools now have a pinned https URL
+        code, out = self.setup_cli("--download", "--dry-run", zstd=False, bepinex=False)
+        steps = {s["step"]: s for s in json.loads(out)["steps"]} if out.lstrip().startswith("{") else {}
+        self.assertEqual((steps.get("tools") or {}).get("tools"), {"zstd": "download", "bepinex": "download"}, out)

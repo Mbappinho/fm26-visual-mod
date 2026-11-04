@@ -66,6 +66,11 @@ ALLOW = [
 REMAP = {"tests/fixtures/baseline-0.2.12/SemanticEventObserver.cs":
          "local/spike-014/pre-anticipatory-0.2.12/files/src/SemanticEventObserver.cs"}
 
+# Public-only files written for the export (overlay folder); the export fails if one is missing.
+OVERLAY_REQUIRED = ("README.md", "CONTRIBUTING.md", "docs/BUILDING.md", "tests/test_public_tree.py", ".gitattributes",
+                    ".github/ISSUE_TEMPLATE/bug_report.md", ".github/ISSUE_TEMPLATE/feature_request.md",
+                    ".github/pull_request_template.md")
+
 # Self-copies: the maintainer tools that produced the tree are published with it.
 SELF = {"tools/export_public.py": Path(__file__).resolve(),
         "tools/leak_scan.py": Path(__file__).resolve().with_name("leak_scan.py")}
@@ -298,6 +303,9 @@ def main(argv=None):
                 out = dest / p.relative_to(ov)
                 out.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(p, out)
+        absent = [rel for rel in OVERLAY_REQUIRED if not (ov / rel).is_file()]
+        if absent:
+            raise SystemExit("overlay is missing required public files: " + ", ".join(absent))
     for rel, src in SELF.items():
         (dest / rel).parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(src, dest / rel)

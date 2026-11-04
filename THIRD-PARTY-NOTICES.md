@@ -11,7 +11,7 @@ user's machine. Their licences apply to those copies.
 | Component | Version | Licence | How it is used |
 |---|---|---|---|
 | Zstandard (`zstd`, Meta Platforms) | 1.5.7 | `BSD-3-Clause OR GPL-2.0-only` (dual licence; used here under BSD-3-Clause) | Command-line tool downloaded into the local tools folder to decompress FIFA 17 game data on the user's machine; never shipped. |
-| BepInEx (BepInEx team) | 6.0.0-be.788 (Unity IL2CPP win-x64) | `LGPL-2.1` | Mod loader from the official BepInEx build (pinned SHA-256; the zip is currently supplied by the user with `--bepinex`, the pinned download URL being unset) copied into the user's Football Manager 26 folder by `tools/deploy.py install`; unmodified, removable with `uninstall`. |
+| BepInEx (BepInEx team) | 6.0.0-be.788 (Unity IL2CPP win-x64) | `LGPL-2.1` | Mod loader from the official BepInEx build (pinned SHA-256; downloaded from the pinned official URL only with `--download`, or supplied by the user with `--bepinex`) copied into the user's Football Manager 26 folder by `tools/deploy.py install`; unmodified, removable with `uninstall`. |
 | .NET runtime (Microsoft / .NET Foundation) | as embedded in the BepInEx IL2CPP build (`dotnet/`) | `MIT` | Part of the BepInEx IL2CPP archive above (runtime folder); installed with it, never shipped by this repository. |
 | Unity Doorstop (`winhttp.dll`, `doorstop_config.ini`) | as embedded in the BepInEx build | `LGPL-2.1` (distributed as part of BepInEx) | Injection proxy contained in the BepInEx archive; installed and removed together with it. |
 

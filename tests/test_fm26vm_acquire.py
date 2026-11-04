@@ -3,6 +3,7 @@
 import hashlib
 import io
 import json
+import os
 import stat
 import sys
 import tempfile
@@ -62,7 +63,7 @@ class PinTests(unittest.TestCase):
             "checks": {"zstd-v1.5.7-win64/zstd.exe": "8076aae03feac7c66b319579e82172eed168deed2a3f25e5e2d3c60f55e84111"}})
         self.assertEqual(acq.PINS.get("bepinex"), {
             "version": "6.0.0-be.788",
-            "url": None,  # U1 open: builds.bepinex.dev answered 403 to the stdlib client; user supplies --bepinex
+            "url": "https://builds.bepinex.dev/projects/bepinex_be/788/BepInEx-Unity.IL2CPP-win-x64-6.0.0-be.788%2B5b766a3.zip",  # U1 closed (H247)
             "file": "BepInEx-Unity.IL2CPP-win-x64-6.0.0-be.788+5b766a3.zip",
             "sha256": "f4cc496bd098a0df4164b81e3737297707f13a47c2478dba2f60eefab784817a",
             "folder": "bepinex-6.0.0-be.788",
@@ -299,3 +300,39 @@ class CliFetchOnlyTests(Tmp):
             code = f"exit {e.code}"
         self.assertEqual(code, 0, out.getvalue())
         self.assertEqual([t["kind"] for t in json.loads(out.getvalue())["tools"]], ["zstd"])
+
+
+class UserAgentTests(Tmp):
+    """H247 U1: builds.bepinex.dev (Cloudflare) answers 403 to the default 'Python-urllib/x' User-Agent. Every default
+    download (fetch-tools and setup --download) must send an explicit, identifying fm26vm User-Agent."""
+    def test_it(self):
+        import urllib.request
+        from unittest import mock
+        seen = []
+
+        def fake_urlopen(req, *a, **k):
+            seen.append(req)
+            return io.BytesIO(self.zip.read_bytes())
+        lad = self.tmp / "lad"
+        out = io.StringIO()
+        with mock.patch.object(urllib.request, "urlopen", fake_urlopen):
+            code = cli.main(["fetch-tools", "--only", "zstd"], out=out, env={"LOCALAPPDATA": str(lad)},
+                            pins=pins_for(self.zip))
+            cli._ctx({"LOCALAPPDATA": str(lad)}, None, None, (), None, None, None, None).opener(
+                "https://example.invalid/setup.zip")
+        got = [(r.full_url, r.get_header("User-agent")) if isinstance(r, urllib.request.Request) else (r, None)
+               for r in seen]
+        bad = [g for g in got if not (g[1] or "").startswith("fm26vm/") or "urllib" in (g[1] or "")]
+        self.assertEqual((code, len(got), bad), (0, 2, []), out.getvalue())
+
+
+@unittest.skipUnless(os.environ.get("FM26VM_REAL_DOWNLOAD") == "1", "opt-in real download (FM26VM_REAL_DOWNLOAD=1)")
+class RealDownload(unittest.TestCase):
+    """Network, opt-in (H247): the default opener fetches the pinned BepInEx zip into a temp dir; sha256 == pin."""
+    def test_it(self):
+        pin = acq.PINS["bepinex"]
+        with tempfile.TemporaryDirectory() as tmp:
+            result = acq.acquire("bepinex", tmp, opener=acq.open_url)
+            zip_path = Path(tmp) / "downloads" / pin["file"]
+            self.assertEqual((result["cached"], zip_path.stat().st_size, acq._sha256(zip_path)),
+                             (False, 34336405, pin["sha256"]))

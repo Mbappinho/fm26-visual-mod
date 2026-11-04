@@ -7,6 +7,7 @@ import json
 import os
 import shutil
 import stat
+import urllib.request
 import zipfile
 from pathlib import Path
 
@@ -22,9 +23,8 @@ PINS = {
     },
     "bepinex": {
         "version": "6.0.0-be.788",
-        # U1 open: candidate https://builds.bepinex.dev/projects/bepinex_be/788/BepInEx-Unity.IL2CPP-win-x64-6.0.0-be.788%2B5b766a3.zip
-        # returned HTTP 403 to urllib (H215); until verified, the zip must be supplied with --bepinex.
-        "url": None,
+        # U1 closed (H247): the H215 403 was Cloudflare refusing the default Python-urllib User-Agent; see open_url.
+        "url": "https://builds.bepinex.dev/projects/bepinex_be/788/BepInEx-Unity.IL2CPP-win-x64-6.0.0-be.788%2B5b766a3.zip",
         "file": "BepInEx-Unity.IL2CPP-win-x64-6.0.0-be.788+5b766a3.zip",
         "sha256": "f4cc496bd098a0df4164b81e3737297707f13a47c2478dba2f60eefab784817a",
         "folder": "bepinex-6.0.0-be.788",
@@ -38,6 +38,8 @@ PINS = {
 MAX_DOWNLOAD_BYTES = 64 * 1024 * 1024
 MAX_EXTRACT_BYTES = 128 * 1024 * 1024
 MARKER = ".fm26vm-tool.json"
+# H247 U1: builds.bepinex.dev (Cloudflare) answers 403 to the default 'Python-urllib/x' User-Agent.
+USER_AGENT = "fm26vm/0.1 (+https://github.com/Mbappinho/fm26-visual-mod)"
 RESERVED = {"CON", "PRN", "AUX", "NUL"} | {f"COM{i}" for i in range(1, 10)} | {f"LPT{i}" for i in range(1, 10)}
 
 
@@ -78,6 +80,11 @@ def safe_extract(zip_path, dest):
         if total > MAX_EXTRACT_BYTES:
             raise AcquireError(f"zip declares {total} uncompressed bytes, above the {MAX_EXTRACT_BYTES} cap")
         archive.extractall(dest)
+
+
+def open_url(url, timeout=120):
+    """Default opener for the pinned downloads: an explicit identifying User-Agent, never the urllib default."""
+    return urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": USER_AGENT}), timeout=timeout)
 
 
 def _download(pin, folder, opener):
@@ -123,7 +130,11 @@ def acquire(kind, tools_dir, supplied=None, opener=None, offline=False, pins=Non
     if supplied is None and not pin["url"].startswith("https://"):
         raise AcquireError(f"{kind}: refusing a non-https download URL: {pin['url']}")
     if supplied is None:
-        source = _download(pin, Path(tools_dir) / "downloads", opener)
+        try:
+            source = _download(pin, Path(tools_dir) / "downloads", opener)
+        except AcquireError as e:
+            raise AcquireError(f"{kind}: {e}. Manual path: download {pin['url']} in a browser and pass the "
+                               f"zip with --{kind} ZIP (its sha256 is checked against {pin['sha256']})") from e
     else:
         source = Path(supplied)
     actual = _sha256(source)
