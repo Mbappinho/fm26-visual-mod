@@ -26,7 +26,7 @@ from tests.test_fm26vm_acquire import EXE, FakeOpener, make_zip, pins_for  # noq
 PLUGIN_REL = "BepInEx/plugins/FM26.VisualDiagnostics/FM26.VisualDiagnostics.dll"
 AUTO_REL = "BepInEx/visual-diagnostics/fifa-overlay-auto.json"
 STEPS = ["detect", "verify-fifa17", "tools", "pack", "deploy", "auto-on", "verify"]
-REVIEWED_PLUGIN = "26a8124073615518421a2a20a91bbeca094ff696bf2253e0c5094ca710998a1c"  # 0.10.7, H241 PASS (H243; was 0.10.6 ab9e1c1f...55a0)
+REVIEWED_PLUGIN = "0bd5ebf491a592b738b4acd5c442338c8ca152b6f9ff993b2b9de335aa9198b4"  # 0.10.7 reproducible, path-free, IL-identical to H241-reviewed 26a81240...a1c (H246)
 
 
 def sha(data):
@@ -310,7 +310,7 @@ class RealSetup(Tmp):
         real = Path(os.environ.get("FM26VM_REAL_LOCALAPPDATA") or os.environ.get("USERPROFILE", "/x") + "/AppData/Local")
         zstd_dir = real / "fm26-visual-mod" / "tools"
         bepinex = ROOT / ".tools" / "downloads" / "bepinex-il2cpp-be788.zip"
-        plugin = ROOT / "local" / "spike-238-suspended-context" / "build-release-out" / "FM26.VisualDiagnostics.dll"
+        plugin = ROOT / "local" / "spike-246-repro-release" / "release-assets" / "FM26.VisualDiagnostics.dll"
         fifa = Path("C:/Program Files/FIFA 17")
         if not all(p.exists() for p in (zstd_dir / "zstd-1.5.7", bepinex, plugin, fifa)):
             self.skipTest("real inputs absent")

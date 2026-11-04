@@ -8,6 +8,12 @@
     <Nullable>disable</Nullable>
     <CheckEolTargetFramework>false</CheckEolTargetFramework>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    <PathMap>$(MSBuildProjectDirectory)=/_/</PathMap>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <LoaderDir Condition="'$(LoaderDir)' == ''">$(MSBuildProjectDirectory)/.tools/bepinex-stage/BepInEx/core</LoaderDir>
     <FM26Dir Condition="'$(FM26Dir)' == ''">$(MSBuildProgramFiles32)/Steam/steamapps/common/Football Manager 26</FM26Dir>
     <InteropDir Condition="'$(InteropDir)' == ''">$(FM26Dir)/BepInEx/interop</InteropDir>

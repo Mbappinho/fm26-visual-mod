@@ -34,9 +34,12 @@ and `$(FM26Dir)/BepInEx/interop`, where `FM26Dir` defaults to the standard Steam
 The build cannot run in an environment without the interop assemblies (for example CI on a clean machine); this
 is expected.
 
-`tools/fm26vm/release.json` pins the SHA-256 of the reviewed release DLL. A self-built DLL has a different hash
-(compiler timestamps/MVID): `setup --plugin` refuses it on purpose; use the release asset, or update the pin in your
-own fork after reviewing your build.
+`tools/fm26vm/release.json` pins the SHA-256 of the release DLL. The project builds deterministically
+(`Deterministic`, `ContinuousIntegrationBuild`, `PathMap`, `DebugType=none`, no source-revision suffix): no PDB path,
+timestamp or checkout directory ends up in the DLL, so the same sources built with the same .NET SDK (the release was
+built with 8.0.425) and the same reference assemblies give a byte-identical file, whatever the folder. If your hash
+still differs (other SDK, other BepInEx/interop assemblies), `setup --plugin` refuses the file on purpose; use the
+release asset, or update the pin in your own fork after reviewing your build.
 
 ## C# policy tests
 
@@ -54,6 +57,6 @@ reference). Maintainer-only host checks (`tests/HostSegments`) are not published
 
 ## Verifying a build against the release
 
-A Release build from this tree produces a DLL whose SHA-256 differs from the published asset (timestamp/MVID), but
-its decompilation is identical. To check, decompile both with ILSpy (`ilspycmd -p -o <dir> <dll> -r <LoaderDir>
+If a Release build from this tree does not match the published asset byte-for-byte (different SDK or reference
+assemblies), its decompilation should still be identical. To check, decompile both with ILSpy (`ilspycmd -p -o <dir> <dll> -r <LoaderDir>
 -r <InteropDir>`) and compare the generated `.cs` / `.csproj` files.

@@ -51,8 +51,9 @@ Does not:
   `--download` (pinned SHA-256), or supplied as a local zip with `--zstd`.
 - The plugin `FM26.VisualDiagnostics.dll` **0.10.7**: download the asset `FM26.VisualDiagnostics.dll` from the
   [Releases page](https://github.com/Mbappinho/fm26-visual-mod/releases). Its SHA-256 must be
-  `26a8124073615518421a2a20a91bbeca094ff696bf2253e0c5094ca710998a1c` (pinned in `tools/fm26vm/release.json`; `setup --plugin` refuses any other file). A self-built DLL has a
-  different hash (see [docs/BUILDING.md](docs/BUILDING.md)).
+  `0bd5ebf491a592b738b4acd5c442338c8ca152b6f9ff993b2b9de335aa9198b4` (pinned in `tools/fm26vm/release.json`; `setup --plugin` refuses any other file). The build is
+  deterministic and path-free: rebuilding this tree with the same .NET SDK and reference assemblies gives the same
+  bytes (see [docs/BUILDING.md](docs/BUILDING.md)).
 
 ### BepInEx: manual download
 
@@ -69,7 +70,7 @@ any other file. Pass it with `--bepinex <zip>`.
 ## Usage
 
 Download `FM26.VisualDiagnostics.dll` (0.10.7) from the [Releases page](https://github.com/Mbappinho/fm26-visual-mod/releases) and check it with
-`certutil -hashfile <dll> SHA256` (expected `26a8124073615518421a2a20a91bbeca094ff696bf2253e0c5094ca710998a1c`).
+`certutil -hashfile <dll> SHA256` (expected `0bd5ebf491a592b738b4acd5c442338c8ca152b6f9ff993b2b9de335aa9198b4`).
 Close Football Manager 26 first, then, from the repository folder (replace the two paths with your downloaded files):
 
 ```bat

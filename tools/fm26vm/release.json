@@ -3,7 +3,7 @@
   "plugin": {
     "file": "FM26.VisualDiagnostics.dll",
     "version": "0.10.7",
-    "bytes": 699392,
-    "sha256": "26a8124073615518421a2a20a91bbeca094ff696bf2253e0c5094ca710998a1c"
+    "bytes": 698880,
+    "sha256": "0bd5ebf491a592b738b4acd5c442338c8ca152b6f9ff993b2b9de335aa9198b4"
   }
 }

@@ -55,6 +55,7 @@ ALLOW = [
     "tests/test_fm26vm_*.py",
     "tests/test_h178_keeper_wiring.py",
     "tests/test_h186_auto_wiring.py",
+    "tests/test_release_build_hygiene.py",
     # legal / meta
     "LICENSE",
     "THIRD-PARTY-NOTICES.md",
