@@ -1,0 +1,42 @@
+.tools/
+local/
+bin/
+obj/
+**/bin/
+**/obj/
+__pycache__/
+*.user
+*.pdb
+# Never commit generated game interop or EA/SI assets.
+*.bundle
+*.cas
+*.toc
+*.pkm
+# Local private FIFA pack (EA-derived, built by tools/fifa_pack.py outside the repo). Never commit/bundle.
+fifa-pack.json
+*.f32le.bin
+*.u16le.bin
+*.f64le.bin
+
+# --- public export additions ---
+# Never commit local experiments, downloaded tools, build outputs or private packs.
+local/
+.tools/
+dist/
+spikes/
+packs/
+*.dll
+*.exe
+*.zip
+*.f32le
+*.u16le
+*.f64le
+*.sb
+*.cat
+*.ebx
+*.res
+*.chunk
+*.dds
+*.fbx
+*.glb
+*.bin

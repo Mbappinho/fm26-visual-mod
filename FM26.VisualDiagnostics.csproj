@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>FM26.VisualDiagnostics</AssemblyName>
+    <Version>0.10.7</Version>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <LoaderDir Condition="'$(LoaderDir)' == ''">$(MSBuildProjectDirectory)/.tools/bepinex-stage/BepInEx/core</LoaderDir>
+    <FM26Dir Condition="'$(FM26Dir)' == ''">$(MSBuildProgramFiles32)/Steam/steamapps/common/Football Manager 26</FM26Dir>
+    <InteropDir Condition="'$(InteropDir)' == ''">$(FM26Dir)/BepInEx/interop</InteropDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="src/*.cs" />
+    <Reference Include="$(LoaderDir)/BepInEx.Core.dll" Private="false" />
+    <Reference Include="$(LoaderDir)/BepInEx.Unity.Common.dll" Private="false" />
+    <Reference Include="$(LoaderDir)/BepInEx.Unity.IL2CPP.dll" Private="false" />
+    <Reference Include="$(LoaderDir)/Il2CppInterop.Runtime.dll" Private="false" />
+    <Reference Include="$(LoaderDir)/AssetRipper.Primitives.dll" Private="false" />
+    <Reference Include="$(InteropDir)/UnityEngine.CoreModule.dll" Private="false" />
+    <Reference Include="$(InteropDir)/UnityEngine.AnimationModule.dll" Private="false" />
+    <Reference Include="$(InteropDir)/FM.GamePlugin.dll" Private="false" />
+    <Reference Include="$(InteropDir)/FM.Match.dll" Private="false" />
+    <Reference Include="$(InteropDir)/FM.Graphics.dll" Private="false" />
+    <Reference Include="$(InteropDir)/SI.Anim.dll" Private="false" />
+    <Reference Include="$(InteropDir)/SI.Match.dll" Private="false" />
+    <Reference Include="$(InteropDir)/SI.MatchTypes.dll" Private="false" />
+    <Reference Include="$(InteropDir)/SIShared.Skinning.dll" Private="false" />
+    <Reference Include="$(InteropDir)/Unity.Collections.dll" Private="false" />
+    <Reference Include="$(InteropDir)/Unity.Mathematics.dll" Private="false" />
+    <Reference Include="$(InteropDir)/Il2Cppmscorlib.dll" Private="false">
+      <Aliases>Il2CppCorlib</Aliases>
+    </Reference>
+  </ItemGroup>
+</Project>

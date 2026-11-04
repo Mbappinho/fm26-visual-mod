@@ -1,0 +1,9 @@
+{
+  "schema": "fm26vm.release.v1",
+  "plugin": {
+    "file": "FM26.VisualDiagnostics.dll",
+    "version": "0.10.7",
+    "bytes": 699392,
+    "sha256": "26a8124073615518421a2a20a91bbeca094ff696bf2253e0c5094ca710998a1c"
+  }
+}

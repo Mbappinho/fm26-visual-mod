@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../src/AnticipatoryPassPolicy.cs" />
+    <Compile Include="../../src/OriginalPassPolicy.cs" Condition="Exists('../../src/OriginalPassPolicy.cs')" />
+    <Compile Include="../../src/DiagnosticsPolicy.cs" Condition="Exists('../../src/DiagnosticsPolicy.cs')" />
+    <Compile Include="../../src/VisualPolicy.cs" Condition="Exists('../../src/VisualPolicy.cs')" />
+    <Compile Include="../../src/PrismGeometry.cs" Condition="Exists('../../src/PrismGeometry.cs')" />
+    <Compile Include="../../src/PoseOwnerPolicy.cs" Condition="Exists('../../src/PoseOwnerPolicy.cs')" />
+    <Compile Include="../../src/GpuCapturePolicy.cs" Condition="Exists('../../src/GpuCapturePolicy.cs')" />
+    <Compile Include="../../src/BoneMappingPolicy.cs" Condition="Exists('../../src/BoneMappingPolicy.cs')" />
+    <Compile Include="../../src/CandidatePosePolicy.cs" Condition="Exists('../../src/CandidatePosePolicy.cs')" />
+    <Compile Include="../../src/GhostDisplayPolicy.cs" />
+    <Compile Include="../../src/CandidateContextGuard.cs" Condition="Exists('../../src/CandidateContextGuard.cs')" />
+    <Compile Include="../../src/FifaOverlayPolicy.cs" Condition="Exists('../../src/FifaOverlayPolicy.cs')" />
+    <Compile Include="../../src/FifaOverlayLifecycle.cs" />
+    <Compile Include="../../src/FifaAutoActivationDecision.cs" />
+    <Compile Include="../../src/FifaAutoCandidate.cs" />
+    <Compile Include="../../src/FifaAutoActivationAttempt.cs" />
+    <Compile Include="../../src/FifaAutoActivationConfiguration.cs" />
+    <Compile Include="../../src/FifaAutoPollCoordinator.cs" />
+    <Compile Include="../../src/FifaAutoNativeObservation.cs" />
+    <Compile Include="../../src/FifaAutoIdentity.cs" />
+    <Compile Include="../../src/FifaAutoHost.cs" />
+    <Compile Include="../../src/FifaOverlaySegments.cs" />
+    <Compile Include="../../src/FifaSessionContext.cs" />
+    <Compile Include="../../src/FifaOverlaySession.cs" />
+    <Compile Include="../../src/FifaOverlayActorContext.cs" />
+    <Compile Include="../../src/FifaOverlaySuspension.cs" Condition="Exists('../../src/FifaOverlaySuspension.cs')" />
+    <Compile Include="../../src/PlayerBindingEligibility.cs" />
+    <Compile Include="../../src/FifaOverlayMulti.cs" Condition="Exists('../../src/FifaOverlayMulti.cs')" />
+    <Compile Include="../../src/FifaMotionTrace.cs" />
+    <Compile Include="../../src/FifaLocomotion.cs" Condition="Exists('../../src/FifaLocomotion.cs')" />
+    <Compile Include="../../src/SemanticEventPolicy.cs" Condition="Exists('../../src/SemanticEventPolicy.cs')" />
+  </ItemGroup>
+</Project>
